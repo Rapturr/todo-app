@@ -1,15 +1,15 @@
 services:
   db:
-    container_name: postgresTodo
+    container_name: postgres
     image: postgres
     environment:
-      POSTGRES_USER: admin
+      POSTGRES_USER: practice
       POSTGRES_PASSWORD: password
       PGDATA: /data/postgres
     volumes:
       - db:/data/postgres
     ports:
-      - "5335:5435"
+      - "5332:5432"
     networks:
       - db
     restart: unless-stopped

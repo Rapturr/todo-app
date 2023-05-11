@@ -22,10 +22,6 @@ public class TodoItem {
     private Instant createdDate;
     private Instant modifiedDate;
 
-    public TodoItem(){
-
-    }
-
     public TodoItem(String description) {
         this.description = description;
         this.complete = false;
@@ -33,8 +29,18 @@ public class TodoItem {
         this.modifiedDate = Instant.now();
     }
 
+    public TodoItem(long id, String description, boolean complete,
+                    Instant createdDate, Instant modifiedDate) {
+        this.id = id;
+        this.description = description;
+        this.complete = complete;
+        this.createdDate = createdDate;
+        this.modifiedDate = modifiedDate;
+    }
+
     @Override
     public String toString(){
         return String.format("TodoItem{id=%d, description='%s', complete = '%s', createdDate='%s', modifiedDate='%s'}",id,description,complete,createdDate,modifiedDate);
     }
+
 }
