@@ -42,4 +42,14 @@ public class TodoItemController {
         todoItemRepository.save(todoItem);
         return "redirect:/";
     }
+    @PostMapping("/todo")
+    public String createTodoItem(@Valid TodoItem todoItem, BindingResult result, Model model){
+        if(result.hasErrors() || todoItem.getDescription().length() == 0){
+            return "add-todo-item";
+        }
+        todoItem.setCreatedDate(Instant.now());
+        todoItem.setModifiedDate(Instant.now());
+        todoItemRepository.save(todoItem);
+        return "redirect:/";
+    }
 }

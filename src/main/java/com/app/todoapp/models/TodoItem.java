@@ -1,6 +1,7 @@
 package com.app.todoapp.models;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -23,6 +24,7 @@ public class TodoItem {
 
     @Getter
     @Setter
+    @NotBlank(message = "Description is required")//Don't know why this doesn't work :/
     private String description;
 
     @Getter

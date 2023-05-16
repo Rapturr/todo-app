@@ -34,4 +34,9 @@ public class TodoFormController {
         todoItemRepository.delete(todoItem);
         return "redirect:/";
     }
+
+    @GetMapping("/create-todo")
+    public String showCreateForm(TodoItem todoItem){
+        return "add-todo-item";
+    }
 }

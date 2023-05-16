@@ -5,9 +5,9 @@
     <link href="style.css">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/3.4.1/css/bootstrap.min.css} " />
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/5.2.3/css/bootstrap.min.css} " />
 </head>
-<body bgcolor="#7fffd4">
+<body>
     <div id="container">
         <div class="col-md-6">
             <form action="#" th:action="@{/todo/{id}(id=${todo.id})}" th:object="${todo}" method="post">
@@ -17,11 +17,11 @@
                 </div>
                 <div class="checkbox">
                     <label>
-                        <input type="checkbox" th:checked="${complete} == true" th:fiel="*{complete}" id="complete" />
+                        <input type="checkbox" th:checked="${complete} == true" th:field="*{complete}" id="complete" />
                         Complete
                     </label>
                 </div>
-                <button class="btn btn-default" type="submit">Update</button>
+                <button class="btn btn-success" type="submit">Update</button>
                 <input type="hidden" th:field="*{createdDate}" />
                 <input type="hidden" th:field="*{modifiedDate}" />
             </form>

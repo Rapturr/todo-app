@@ -5,17 +5,17 @@
     <link href="style.css">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/3.4.1/css/bootstrap.min.css} " />
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/5.2.3/css/bootstrap.min.css} " />
 </head>
-<body bgcolor="#7fffd4">
-HELLO
+<body>
 <div id="topPanel">
     <div id="midPanelSection">
         <h1 class="text-center">Todo List</h1>
         <hr />
-        <table>
+        <table class="table table-bordered table-striped">
             <thead>
                 <tr>
+                    <th></th>
                     <th>Id</th>
                     <th>Description</th>
                     <th>Completed</th>
@@ -24,7 +24,7 @@ HELLO
                 </tr>
             </thead>
             <tbody>
-                <tr th:each="item : ${todoItems}">
+                <tr th:each="item : ${todoItems}" th:class="${item.complete} ? success : warning">
                     <td>
                         <div class="btn btn-group-sm" role="group">
                             <a class="btn btn-info" th:href="@{/edit/{id}(id=${item.id})}">Edit</a>
@@ -39,6 +39,7 @@ HELLO
                 </tr>
             </tbody>
         </table>
+        <p><a class="btn btn-success" href="/create-todo">Add a todo</a> </p>
     </div>
 </div>
     <script th:src="@{/webjars/jquery/3.6.0/jquery.min.js}"></script>
