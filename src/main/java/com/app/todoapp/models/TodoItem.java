@@ -7,6 +7,7 @@ import lombok.Setter;
 import java.time.Instant;
 
 @Entity
+@Table(name = "todo_item")
 public class TodoItem {
 
     @Id
@@ -16,10 +17,24 @@ public class TodoItem {
             allocationSize = 1
     )
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "task_id_sequence")
+    @Getter
+    @Setter
     private long id;
+
+    @Getter
+    @Setter
     private String description;
+
+    @Getter
+    @Setter
     private boolean complete;
+
+    @Getter
+    @Setter
     private Instant createdDate;
+
+    @Getter
+    @Setter
     private Instant modifiedDate;
 
     public TodoItem(String description) {
@@ -28,15 +43,7 @@ public class TodoItem {
         this.createdDate = Instant.now();
         this.modifiedDate = Instant.now();
     }
-
-    public TodoItem(long id, String description, boolean complete,
-                    Instant createdDate, Instant modifiedDate) {
-        this.id = id;
-        this.description = description;
-        this.complete = complete;
-        this.createdDate = createdDate;
-        this.modifiedDate = modifiedDate;
-    }
+    public TodoItem() {}
 
     @Override
     public String toString(){
